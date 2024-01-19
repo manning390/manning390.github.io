@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install all dependencies
-        run: npm ci
+        run: npm ci --legacy-peer-deps # Will need to keep this until svelte5 release
 
       - name: Build
         run: npm run build
