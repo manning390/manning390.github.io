@@ -15,7 +15,7 @@ jobs:
           node-version: '18.x'
 
       - name: git-checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install all dependencies
         run: npm ci --legacy-peer-deps # Will need to keep this until svelte5 release
