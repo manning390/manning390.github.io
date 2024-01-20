@@ -32,4 +32,15 @@ module.exports = {
 		es2017: true,
 		node: true,
 	},
+	// rules: {
+	// 	'import/extensions': [
+	// 		'error',
+	// 		'ignorePackages',
+	// 		{
+	// 			js: 'never',
+	// 			ts: 'never',
+	// 			svelte: 'never',
+	// 		},
+	// 	],
+	// },
 };
