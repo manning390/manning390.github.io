@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
 	import { onMount, setContext } from 'svelte';
 
 	import Header from '$lib/components/Header.svelte';
