@@ -23,7 +23,7 @@ export default function animate(
 	const animate = () => {
 		node.classList.add(animation);
 	};
-	const remove = () => {
+	const resetAnimation = () => {
 		node.classList.remove('animate__bounce');
 		cycles++;
 		if (cycles < repeats) setTimeout(animate, delay);
@@ -31,11 +31,11 @@ export default function animate(
 
 	setTimeout(animate, initDelay);
 
-	endEvents.forEach((event) => node.addEventListener(event, remove));
+	endEvents.forEach((event) => node.addEventListener(event, resetAnimation));
 
 	return {
 		destroy() {
-			endEvents.forEach((event) => node.addEventListener(event, remove));
+			endEvents.forEach((event) => node.removeEventListener(event, resetAnimation));
 		},
 	};
 }
