@@ -54,7 +54,7 @@
 		Community:
 			'In all games lies a community of players. Be it through live letters or balace changes, involving and listening to them is paramount.',
 		Story:
-			'Any game can be fun, but only those with emerssive story and direction make you feel. Finish a good game should elicit a feeling of catharsis.',
+			'Any game can be fun, but only those with emerssive story and direction make you feel. Finishing a good game should elicit a feeling of catharsis.',
 		Accessibility:
 			'Anyone should be able to play your game. In this regard, cross-platform, cross-play, color adjustments, and fully rebindable controls are critical.',
 	};
