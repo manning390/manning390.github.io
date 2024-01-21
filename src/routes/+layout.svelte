@@ -21,12 +21,39 @@
 	});
 </script>
 
-{#if ready}
-	<div transition:fade={{ duration: 1000 }}>
-		<Header class="container mx-auto px-2 md:px-14 lg:px-28" />
-		<main aria-label="content" class="container mx-auto px-2 md:px-14 lg:px-28">
-			<slot />
-		</main>
-		<Footer class="mx-auto px-2 md:px-14 lg:px-28" />
-	</div>
-{/if}
+<Header class="container mx-auto px-2 md:px-14 lg:px-28" />
+<main aria-label="content" class="container mx-auto px-2 md:px-14 lg:px-28">
+	<slot />
+</main>
+<Footer class="mx-auto px-2 md:px-14 lg:px-28" />
+
+<style lang="postcss">
+	@-webkit-keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@-moz-keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	:global(body) {
+		opacity: 0;
+		animation: fadeIn 1s ease-in 700ms 1 forwards;
+	}
+</style>

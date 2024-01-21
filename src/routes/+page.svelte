@@ -1,9 +1,55 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Email from '$lib/components/Email.svelte';
 	import { AccentColor } from '$lib/stores/accent.svelte.ts';
 	import animate from '$lib/actions/animate.svelte.ts';
 
+	const tech = $state([
+		{ w: 4, c: 0, name: 'React', href: 'https://react.dev' },
+		{ w: 4, c: 0, name: 'Neovim', href: 'https://neovim.io' },
+		{ w: 4, c: 0, name: 'Laravel', href: 'https://laravel.com' },
+		{ w: 4, c: 0, name: 'Git', href: 'https://git-scm.com' },
+		{ w: 4, c: 0, name: 'Godot', href: 'https://godotengine.org' },
+		{ w: 3, c: 0, name: 'Tailwindcss', href: 'https://tailwindcss.com' },
+		{ w: 3, c: 0, name: 'Svelte', href: 'https://svelte.dev' },
+		{ w: 3, c: 0, name: 'SQL', href: 'https://www.postgresql.org' },
+		{ w: 2, c: 0, name: 'Unity', href: 'https://godotengine.org' },
+		{ w: 2, c: 0, name: 'SFML', href: 'https://www.sfml-dev.org' },
+		{ w: 2, c: 0, name: 'Python', href: 'https://www.python.org' },
+		{ w: 2, c: 0, name: 'Perl', href: 'https://www.perl.org' },
+		{ w: 2, c: 0, name: 'NixOs', href: 'https://nixos.org' },
+		{ w: 2, c: 0, name: 'Nginx', href: 'https://nginx.com' },
+		{ w: 2, c: 0, name: 'Lua', href: 'https://www.lua.org' },
+		{ w: 2, c: 0, name: 'Java', href: 'https://www.java.com' },
+		{ w: 2, c: 0, name: 'C/C++', href: 'https://www.cplusplus.com' },
+		{ w: 2, c: 0, name: 'Angular', href: 'https://angular.io' },
+		{ w: 1, c: 0, name: 'Typescript', href: 'https://typescriptlang.org' },
+		{ w: 1, c: 0, name: 'Spring', href: 'https://spring.io' },
+		{ w: 1, c: 0, name: 'OpenGl', href: 'https://www.opengl.org' },
+		{ w: 1, c: 0, name: 'Haskell', href: 'https://www.haskell.org' },
+		{ w: 1, c: 0, name: 'Clojure', href: 'https://clojure.org' },
+	]);
+	onMount(() => {
+		// Shuffle the fuck out of it
+		for (let s = 0; s < 7; ++s)
+			for (let i = tech.length - 1; i > 0; --i) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[tech[i], tech[j]] = [tech[j], tech[i]];
+			}
+		// Color pseudo randomization
+		// Set first value to random idx
+		tech[0].c = Math.floor(Math.random() * AccentColor.size);
+		const coloridx = Array.from(Array(AccentColor.size).keys());
+		for (let i = 1; i < tech.length; ++i) {
+			// Get array 1..N
+			const tmp = [...coloridx];
+			// Remove index of prev color
+			tmp.splice(tech[i - 1].c, 1);
+			// Get random of remaining
+			tech[i].c = tmp[Math.floor(Math.random() * tmp.length)];
+		}
+	});
 	const principles = {
 		Community:
 			'In all games lies a community of players. Be it through live letters or balace changes, involving and listening to them is paramount.',
@@ -12,52 +58,6 @@
 		Accessibility:
 			'Anyone should be able to play your game. In this regard, cross-platform, cross-play, color adjustments, and fully rebindable controls are critical.',
 	};
-	const tech = (() => {
-		let data = [
-			{ w: 4, c: 0, name: 'React', href: 'https://react.dev' },
-			{ w: 4, c: 0, name: 'Neovim', href: 'https://neovim.io' },
-			{ w: 4, c: 0, name: 'Laravel', href: 'https://laravel.com' },
-			{ w: 4, c: 0, name: 'Git', href: 'https://git-scm.com' },
-			{ w: 4, c: 0, name: 'Godot', href: 'https://godotengine.org' },
-			{ w: 3, c: 0, name: 'Tailwindcss', href: 'https://tailwindcss.com' },
-			{ w: 3, c: 0, name: 'Svelte', href: 'https://svelte.dev' },
-			{ w: 3, c: 0, name: 'SQL', href: 'https://www.postgresql.org' },
-			{ w: 2, c: 0, name: 'Unity', href: 'https://godotengine.org' },
-			{ w: 2, c: 0, name: 'SFML', href: 'https://www.sfml-dev.org' },
-			{ w: 2, c: 0, name: 'Python', href: 'https://www.python.org' },
-			{ w: 2, c: 0, name: 'Perl', href: 'https://www.perl.org' },
-			{ w: 2, c: 0, name: 'NixOs', href: 'https://nixos.org' },
-			{ w: 2, c: 0, name: 'Nginx', href: 'https://nginx.com' },
-			{ w: 2, c: 0, name: 'Lua', href: 'https://www.lua.org' },
-			{ w: 2, c: 0, name: 'Java', href: 'https://www.java.com' },
-			{ w: 2, c: 0, name: 'C/C++', href: 'https://www.cplusplus.com' },
-			{ w: 2, c: 0, name: 'Angular', href: 'https://angular.io' },
-			{ w: 1, c: 0, name: 'Typescript', href: 'https://typescriptlang.org' },
-			{ w: 1, c: 0, name: 'Spring', href: 'https://spring.io' },
-			{ w: 1, c: 0, name: 'OpenGl', href: 'https://www.opengl.org' },
-			{ w: 1, c: 0, name: 'Haskell', href: 'https://www.haskell.org' },
-			{ w: 1, c: 0, name: 'Clojure', href: 'https://clojure.org' },
-		];
-		// Shuffle the fuck out of it
-		for (let s = 0; s < 7; ++s)
-			for (let i = data.length - 1; i > 0; --i) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[data[i], data[j]] = [data[j], data[i]];
-			}
-		// Color pseudo randomization
-		// Set first value to random idx
-		data[0].c = Math.floor(Math.random() * AccentColor.size);
-		const coloridx = Array.from(Array(AccentColor.size).keys());
-		for (let i = 1; i < data.length; ++i) {
-			// Get array 1..N
-			const tmp = [...coloridx];
-			// Remove index of prev color
-			tmp.splice(data[i - 1].c, 1);
-			// Get random of remaining
-			data[i].c = tmp[Math.floor(Math.random() * tmp.length)];
-		}
-		return data;
-	})();
 	function scrollIntoView(target: string) {
 		const el = document.querySelector(target);
 		if (!el) return;
@@ -121,7 +121,9 @@
 	<div
 		class="mx-auto mb-4 flex w-2/3 flex-wrap items-center justify-center gap-x-4 gap-y-1 leading-snug">
 		{#each tech as { name, href, w, c }}
-			<Link {href} style={`font-size: ${w / 1.15}rem; color: rgb(${[...AccentColor.values()][c]});`}
+			<Link
+				{href}
+				style={`font-size: ${(w / 1.15).toFixed(2)}rem; color: rgb(${[...AccentColor.values()][c]});`}
 				>{name}</Link>
 		{/each}
 	</div>
