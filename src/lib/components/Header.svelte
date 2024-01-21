@@ -38,6 +38,7 @@
 		<div class="relative" onfocusout={dropdownFocusLost}>
 			<button
 				class="z-20 h-6 w-6 rounded-full border-2 border-transparent bg-accent transition-colors duration-700 hover:border-typo hover:brightness-150"
+				aria-label="Accent Color Dropdown"
 				onclick={toggleDropdown} />
 			{#if showAccentDropdown}
 				<div
@@ -47,8 +48,7 @@
 					{#each [...AccentColor] as [accent, color]}
 						<button
 							class="group flex items-center justify-end gap-2 text-right capitalize"
-							onclick={() => selectAccent(accent)}
-							aria-label="Accent Color Dropdown">
+							onclick={() => selectAccent(accent)}>
 							<span class="group-hover:underline">{accent}</span>
 							<div
 								class="inline-block h-4 w-4 rounded-full transition-all duration-500 group-hover:brightness-150"
