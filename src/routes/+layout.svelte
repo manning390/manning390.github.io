@@ -1,13 +1,10 @@
 <script lang="ts">
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { AccentColorFallback, AccentColor, createAccent } from '$lib/stores/accent.svelte.ts';
 	import '../app.css';
-
-	let ready = $state(false);
-	onMount(() => (ready = true));
 
 	const accents = createAccent();
 	setContext('accent', accents);
