@@ -24,7 +24,7 @@
 		{ w: 2, c: 0, name: 'Perl', href: 'https://www.perl.org' },
 		{ w: 2, c: 0, name: 'Python', href: 'https://www.python.org' },
 		{ w: 2, c: 0, name: 'SFML', href: 'https://www.sfml-dev.org' },
-		{ w: 2, c: 0, name: 'Unity', href: 'https://godotengine.org' },
+		{ w: 2, c: 0, name: 'Unity', href: 'https://unity.com/' },
 		{ w: 1, c: 0, name: 'Clojure', href: 'https://clojure.org' },
 		{ w: 1, c: 0, name: 'Haskell', href: 'https://www.haskell.org' },
 		{ w: 1, c: 0, name: 'OpenGl', href: 'https://www.opengl.org' },
