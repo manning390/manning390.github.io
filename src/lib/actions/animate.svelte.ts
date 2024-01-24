@@ -24,7 +24,7 @@ export default function animate(
 		node.classList.add(animation);
 	};
 	const resetAnimation = () => {
-		node.classList.remove('animate__bounce');
+		node.classList.remove(animation);
 		cycles++;
 		if (cycles < repeats) setTimeout(animate, delay);
 	};
