@@ -53,7 +53,7 @@
 	});
 	const principles = {
 		Community:
-			'In all games lies a community of players. Be it through live letters or balace changes, involving and listening to them is paramount.',
+			'In all games lies a community of players. Be it through live letters or balance changes, involving and listening to them is paramount.',
 		Story:
 			'Any game can be fun, but only those with emerssive story and direction make you feel. Finishing a good game should elicit a feeling of catharsis.',
 		Accessibility:
